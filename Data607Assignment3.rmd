@@ -1,0 +1,91 @@
+---
+title: "Assignment 4 Data 607"
+author: "Al Haque"
+date: "Feb 17,2022`"
+output: openintro::lab_report
+---
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(stringr)
+Major <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/college-majors/majors-list.csv",header=TRUE,sep=",")
+head(Major)
+```
+
+### Exercise 1
+
+Using str_detect to return any pattern I found that in the majors list we have DATA returned once and STATISTICS returned twice. 
+
+```{r}
+
+Major1 <- Major %>%
+  select(Major) %>%
+  filter(str_detect(Major,"(DATA|STATISTICS)")) 
+
+Major1
+```
+
+
+### Exercise 2
+
+
+
+```{r}
+Fruits <- c("bell pepper","bilberry","blackberry","blood orange","blueberry","cantaloupe","chili pepper","cloudberry","elderberry","lime","lychee","mulberry","olive","salal berry")
+Fruitd <- dput(as.character(Fruits))
+
+
+
+```
+
+
+### Exercise 3 (14.3.5.1)
+
+#### Exercise 3a
+
+  (.)\1\1 this matches any expressions that have the same letters three times. 
+
+
+#### Exercise 3b
+
+  "(.)(.)\\2\\1" returns a pair of letters and the pair of letters but reversed ex: peppers
+
+#### Exercise 3c
+
+  (..)\1 finds any expression in which any 2 characters are repeated
+  
+#### Exercise 3d
+  
+  "(.).\\1.\\1" returns a string with a character then another character, the same character with any other character,and the original character again. ex: "acada" 
+  
+#### Exercise 3e
+
+  "(.)(.)(.).*\\3\\2\\1" returns three character followed by zero or more characters with the same three character but reversed. ex: "abccba"
+
+
+### Exercise 4 (14.3.5.2)
+
+
+#### Exercise 4a
+
+```{r}
+
+str_subset(words,"^(.)((.*\\1$)|\\1$)")
+
+```
+
+
+#### Exercise 4b
+
+
+```{r plot-prop-boys-present}
+str_view("church", "([a-z][a-z]).*\\1")
+```
+
+#### Exercise 4c
+
+```{r}
+str_view("eleven","([a-z]).*\\1.*\\1")
+```
+
+
