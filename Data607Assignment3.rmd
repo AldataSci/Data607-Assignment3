@@ -1,5 +1,5 @@
 ---
-title: "Assignment 4 Data 607"
+title: "Assignment 3 Data 607"
 author: "Al Haque"
 date: "Feb 17,2022`"
 output: openintro::lab_report
@@ -31,7 +31,6 @@ Major1
 
 
 ```{r}
-## I couldnt not understand how to do this problem for the life of me.. 
 Fruits <- c("bell pepper","bilberry","blackberry","blood orange","blueberry","cantaloupe","chili pepper","cloudberry","elderberry","lime","lychee","mulberry","olive","salal berry")
 dput(Fruits)
 ```
